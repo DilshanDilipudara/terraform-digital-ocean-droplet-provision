@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: Digital-Ocean
+  name: Digital-Ocean
 
 steps:
 - script: echo Hello, world!
