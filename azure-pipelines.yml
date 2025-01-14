@@ -10,13 +10,14 @@ variables:
 stages:
 - stage: CreateDroplet
   jobs:
-    - steps:
-        - script: |
-            terraform init 
-          displayName: 'Terraform init'
-        - script: |
-            terraform plan -var "TOKEN=$TOKEN"
-          displayName: 'Terraform plan'
-        - script: |
-            terraform apply -auto-approve -var "TOKEN=$TOKEN"
-          displayName: 'Terraform Apply'
+  - job: terraform_droplet_create_job
+    steps:
+      - script: |
+          terraform init 
+        displayName: 'Terraform init'
+      - script: |
+          terraform plan -var "TOKEN=$TOKEN"
+        displayName: 'Terraform plan'
+      - script: |
+          terraform apply -auto-approve -var "TOKEN=$TOKEN"
+        displayName: 'Terraform Apply'
